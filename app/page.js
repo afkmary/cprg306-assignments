@@ -2,24 +2,17 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 px-6 py-12">
-      <section className="mx-auto max-w-4xl px-4">
-        <h1 className="mb-8 text-center text-3xl font-bold text-slate-900">
+    <main className="min-h-screen p-6">
+      <section className="mx-auto max-w-2xl">
+        <h1 className="text-2xl font-bold text-center mb-6">
           CPRG 306: Web Development 2 – Assignments
         </h1>
-        <nav className="flex gap-4">
 
-          <Link
-            href="/week-2"
-            className="rounded-xl bg-white px-6 py-3 text-lg font-medium text-sky-600 shadow-sm ring-1 ring-slate-200
-               hover:bg-emerald-50 hover:ring-emerald-300">
+        <nav className="flex justify-center gap-4">
+          <Link className="border px-4 py-2 text-lg" href="/week-2">
             Week 2
           </Link>
-
-          <Link
-            href="/week-3"
-            className="rounded-xl bg-white px-6 py-3 text-lg font-medium text-emerald-700 shadow-sm ring-1 ring-slate-200
-               hover:bg-emerald-50 hover:ring-emerald-300">
+          <Link className="border px-4 py-2 text-lg" href="/week-3">
             Week 3
           </Link>
         </nav>
