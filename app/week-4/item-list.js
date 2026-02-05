@@ -27,7 +27,6 @@ export default function ItemList() {
                 key={item.id}
                 name={item.name}
                 quantity={item.quantity}
-                category={item.category}
               />
             ))}
           </ul>
