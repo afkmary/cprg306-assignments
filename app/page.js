@@ -15,6 +15,9 @@ export default function Home() {
           <Link className="border px-4 py-2 text-lg" href="/week-3">
             Week 3
           </Link>
+          <Link className="border px-4 py-2 text-lg" href="/week-4">
+            Week 4
+          </Link>
         </nav>
       </section>
     </main>
