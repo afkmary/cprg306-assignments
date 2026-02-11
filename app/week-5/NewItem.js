@@ -18,7 +18,7 @@ export default function NewItem() {
 
     console.log(item);
     alert(
-      `Added: ${item.name || "(no name)"}, quantity: ${item.quantity}, category: ${item.category}`
+      `Added: ${item.name}, quantity: ${item.quantity}, category: ${item.category}`
     );
 
     setName("");
@@ -33,68 +33,50 @@ export default function NewItem() {
     >
       <h2 className="text-xl font-semibold">Add New Item</h2>
 
-      {/* Name */}
-      <div className="space-y-1">
-        <label className="text-sm font-medium" htmlFor="name">
-          Name
-        </label>
-        <input
-          id="name"
-          type="text"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-md border border-slate-300 p-2 outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="e.g., Bread"
-        />
-      </div>
+      {/* Name Field */}
+      <input
+        type="text"
+        required
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="w-full rounded-md border border-slate-300 p-2"
+        placeholder="Item name"
+      />
 
-      {/* Quantity + Category row */}
+      {/* Quantity + Category */}
       <div className="flex gap-3">
-        <div className="flex-1 space-y-1">
-          <label className="text-sm font-medium" htmlFor="quantity">
-            Quantity
-          </label>
-          <input
-            id="quantity"
-            type="number"
-            min={1}
-            max={99}
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            className="w-full rounded-md border border-slate-300 p-2 outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+        <input
+          type="number"
+          min={1}
+          max={99}
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+          className="w-full rounded-md border border-slate-300 p-2"
+        />
 
-        <div className="flex-1 space-y-1">
-          <label className="text-sm font-medium" htmlFor="category">
-            Category
-          </label>
-          <select
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="w-full rounded-md border border-slate-300 p-2 outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="produce">Produce</option>
-            <option value="dairy">Dairy</option>
-            <option value="bakery">Bakery</option>
-            <option value="meat">Meat</option>
-            <option value="frozen-foods">Frozen Foods</option>
-            <option value="canned-goods">Canned Goods</option>
-            <option value="dry-goods">Dry Goods</option>
-            <option value="beverages">Beverages</option>
-            <option value="snacks">Snacks</option>
-            <option value="household">Household</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="w-full rounded-md border border-slate-300 p-2"
+        >
+          <option value="produce">Produce</option>
+          <option value="dairy">Dairy</option>
+          <option value="bakery">Bakery</option>
+          <option value="meat">Meat</option>
+          <option value="frozen-foods">Frozen Foods</option>
+          <option value="canned-goods">Canned Goods</option>
+          <option value="dry-goods">Dry Goods</option>
+          <option value="beverages">Beverages</option>
+          <option value="snacks">Snacks</option>
+          <option value="household">Household</option>
+          <option value="other">Other</option>
+        </select>
       </div>
 
       {/* Submit */}
       <button
         type="submit"
-        className="w-full rounded-md bg-blue-600 py-2 text-lg font-semibold text-white hover:bg-blue-700 active:scale-[0.99]"
+        className="w-full rounded-md bg-blue-600 py-2 text-white hover:bg-blue-700"
       >
         +
       </button>
