@@ -22,7 +22,7 @@ export default function ItemList({ items = [] }) {
     return a.name.localeCompare(b.name);
   });
 
-  // grouped by category 
+  // group by category 
   const itemsByCategory = items.reduce((groups, item) => {
     const category = item.category;
     if (!groups[category]) groups[category] = [];
