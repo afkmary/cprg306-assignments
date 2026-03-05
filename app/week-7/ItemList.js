@@ -6,12 +6,11 @@ import Item from "./item";
 export default function ItemList({ items = [] }) {
   const [sortBy, setSortBy] = useState("name");
 
-  const baseBtn =
-    "rounded-md px-3 py-2 text-sm font-medium ring-1 ring-slate-300";
+  const baseBtn = "rounded-md px-3 py-2 text-sm font-medium ring-1 ring-slate-300";
   const activeBtn = "bg-blue-400 text-white";
   const inactiveBtn = "bg-white text-slate-900 hover:bg-slate-50";
 
-  // sorted list (copy -> sort)
+  // sorted list
   const sortedItems = [...items].sort((a, b) => {
     if (sortBy === "category") {
       const catCompare = a.category.localeCompare(b.category);
@@ -21,7 +20,7 @@ export default function ItemList({ items = [] }) {
     return a.name.localeCompare(b.name);
   });
 
-  // group by category (doesn't mutate items)
+  // group by category
   const itemsByCategory = items.reduce((groups, item) => {
     const category = item.category;
     if (!groups[category]) groups[category] = [];
@@ -33,7 +32,7 @@ export default function ItemList({ items = [] }) {
     a.localeCompare(b)
   );
 
-  // sort items within each category by name (copy -> sort)
+  // sort items within each category by name
   for (const category of sortedCategories) {
     itemsByCategory[category] = [...itemsByCategory[category]].sort((a, b) =>
       a.name.localeCompare(b.name)
