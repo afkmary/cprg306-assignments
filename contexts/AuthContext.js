@@ -6,6 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
   GithubAuthProvider,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../app/utils/firebase";
 
@@ -14,12 +15,17 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  const gitHubSignIn = () => {
+  const gitHubSignIn = async () => {
     const provider = new GithubAuthProvider();
     return signInWithPopup(auth, provider);
   };
 
-  const firebaseSignOut = () => {
+  const googleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
+  const firebaseSignOut = async () => {
     return signOut(auth);
   };
 
@@ -27,11 +33,14 @@ export const AuthContextProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
+
     return () => unsubscribe();
-  }, [user]);
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ user, gitHubSignIn, firebaseSignOut }}>
+    <AuthContext.Provider
+      value={{ user, gitHubSignIn, googleSignIn, firebaseSignOut }}
+    >
       {children}
     </AuthContext.Provider>
   );
