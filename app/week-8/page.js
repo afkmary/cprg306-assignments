@@ -36,7 +36,7 @@ export default function Page() {
           </div>
 
           <div className="w-1/2">
-            <div className="rounded-xl bg-white p-6 text-slate-900 shadow min-h-[260px]">
+            <div className="rounded-xl bg-white p-6 text-slate-900 shadow min-h-65">
               <MealIdeas ingredient={selectedItemName} />
             </div>
           </div>
