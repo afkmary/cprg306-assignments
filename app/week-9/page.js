@@ -59,7 +59,7 @@ export default function Week9Page() {
       {user && (
         <div className="flex flex-col items-center gap-4">
           <p>
-            Welcome, {user.displayName} ({user.email})
+            Hello, {user.displayName}!
           </p>
 
           <button
